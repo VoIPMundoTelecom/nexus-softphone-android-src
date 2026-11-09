@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ondafone: o Coral só aparece aqui (botão principal); o resto do tema usa Onda/Onda Funda -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <corners android:radius="48dp" />
+    <solid android:color="@color/ondafone_coral"/>
+</shape>

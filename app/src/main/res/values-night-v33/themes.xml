@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppSplashScreenTheme" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/ondafone_abismo</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ondafone_launcher_foreground</item>
+        <item name="postSplashScreenTheme">@style/Theme.Linphone</item>
+        <item name="android:windowSplashScreenBehavior">icon_preferred</item>
+    </style>
+</resources>

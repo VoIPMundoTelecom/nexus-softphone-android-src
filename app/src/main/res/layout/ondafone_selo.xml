@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ondafone: selo de recurso do modo completo. Visível só no modo limitado (quem inclui controla). -->
+<androidx.appcompat.widget.AppCompatTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/default_text_style_600"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_ondafone_selo"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp"
+    android:maxLines="1"
+    android:text="@string/ondafone_selo"
+    android:textColor="@color/bc_white"
+    android:textSize="13sp" />

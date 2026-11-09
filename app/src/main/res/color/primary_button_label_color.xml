@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ondafone: rótulo do botão principal (Coral). Abismo sobre Coral = 6,6:1 (o branco daria 2,8:1);
+     pressionado (contorno Coral sobre o fundo) usa a cor de texto do tema -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false"
+        android:color="?attr/color_bottom_sheet_disabled_menu" />
+    <item android:state_pressed="true"
+        android:color="?attr/color_text" />
+    <item android:state_hovered="true"
+        android:color="?attr/color_text" />
+    <item
+        android:color="@color/ondafone_abismo"/>
+</selector>

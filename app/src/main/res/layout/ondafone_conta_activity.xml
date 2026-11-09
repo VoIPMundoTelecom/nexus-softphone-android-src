@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Conta Ondafone (back #390): quem está conectado, sair neste aparelho e excluir a conta (Google Play). -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/color_background_contrast_in_dark_mode">
+
+    <ImageView
+        style="@style/icon_top_bar_button_style"
+        android:id="@+id/voltar"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:src="@drawable/caret_left"
+        android:contentDescription="@string/content_description_go_back_icon"
+        app:tint="?attr/color_main1_500"
+        app:layout_constraintBottom_toBottomOf="@id/titulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/titulo" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/main_page_title_style"
+        android:id="@+id/titulo"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/top_bar_height"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/ondafone_conta_titulo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/voltar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titulo">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/default_text_style"
+            android:id="@+id/conectado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/default_text_style"
+            android:id="@+id/aviso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/secondary_button_label_style"
+            android:id="@+id/sair"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/ondafone_conta_sair" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/tertiary_button_label_style"
+            android:id="@+id/excluir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/ondafone_conta_excluir" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

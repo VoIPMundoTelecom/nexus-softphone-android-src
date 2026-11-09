@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Ondafone no escuro: cor principal = Onda; texto suave = #9FB3C8 -->
+    <color name="orange_main_500">@color/ondafone_onda</color>
+    <color name="ondafone_texto_suave">@color/ondafone_texto_suave_escuro</color>
+</resources>

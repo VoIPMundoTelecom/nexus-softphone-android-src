@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ondafone (S3, 03/11): modo limitado/completo, "Usar minha operadora", recursos bloqueados com selo e oferta -->
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="org.linphone.ui.main.settings.viewmodel.SettingsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        android:background="@drawable/shape_squircle_white_background">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/settings_title_style"
+            android:id="@+id/modo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="20dp"
+            android:text="@{viewModel.ondafoneLimitado ? @string/ondafone_modo_limitado : @string/ondafone_modo_completo, default=@string/ondafone_modo_limitado}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/settings_subtitle_style"
+            android:id="@+id/modo_explicacao"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:maxLines="4"
+            android:text="@{viewModel.ondafoneLimitado ? @string/ondafone_modo_limitado_explicacao : @string/ondafone_modo_completo_explicacao, default=@string/ondafone_modo_limitado_explicacao}"
+            app:layout_constraintTop_toBottomOf="@id/modo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/settings_title_style"
+            android:onClick="@{() -> viewModel.ondafoneUsarMinhaOperadora()}"
+            android:id="@+id/usar_minha_operadora"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/ondafone_usar_minha_operadora"
+            android:drawableEnd="@drawable/caret_right"
+            android:drawableTint="?attr/color_main2_600"
+            app:layout_constraintTop_toBottomOf="@id/modo_explicacao"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/settings_subtitle_style"
+            android:onClick="@{() -> viewModel.ondafoneUsarMinhaOperadora()}"
+            android:id="@+id/usar_minha_operadora_sub"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/ondafone_usar_minha_operadora_sub"
+            app:layout_constraintTop_toBottomOf="@id/usar_minha_operadora"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/settings_title_style"
+            android:onClick="@{() -> viewModel.ondafoneOferta(`video`)}"
+            android:id="@+id/recurso_video"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/ondafone_recurso_video"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:visibility="@{viewModel.ondafoneLimitado ? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintTop_toBottomOf="@id/usar_minha_operadora_sub"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/recurso_video_selo"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/default_text_style_600"
+            android:onClick="@{() -> viewModel.ondafoneOferta(`video`)}"
+            android:id="@+id/recurso_video_selo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/shape_ondafone_selo"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:maxLines="1"
+            android:text="@string/ondafone_selo"
+            android:textColor="@color/bc_white"
+            android:textSize="13sp"
+            android:visibility="@{viewModel.ondafoneLimitado ? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintTop_toTopOf="@id/recurso_video"
+            app:layout_constraintBottom_toBottomOf="@id/recurso_video"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/settings_title_style"
+            android:onClick="@{() -> viewModel.ondafoneOferta(`gravacao`)}"
+            android:id="@+id/recurso_gravacao"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/ondafone_recurso_gravacao"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:visibility="@{viewModel.ondafoneLimitado ? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintTop_toBottomOf="@id/recurso_video"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/recurso_gravacao_selo"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/default_text_style_600"
+            android:onClick="@{() -> viewModel.ondafoneOferta(`gravacao`)}"
+            android:id="@+id/recurso_gravacao_selo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/shape_ondafone_selo"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:maxLines="1"
+            android:text="@string/ondafone_selo"
+            android:textColor="@color/bc_white"
+            android:textSize="13sp"
+            android:visibility="@{viewModel.ondafoneLimitado ? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintTop_toTopOf="@id/recurso_gravacao"
+            app:layout_constraintBottom_toBottomOf="@id/recurso_gravacao"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/settings_title_style"
+            android:onClick="@{() -> viewModel.ondafoneOferta(`conferencia`)}"
+            android:id="@+id/recurso_conferencia"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/ondafone_recurso_conferencia"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:visibility="@{viewModel.ondafoneLimitado ? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintTop_toBottomOf="@id/recurso_gravacao"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/recurso_conferencia_selo"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/default_text_style_600"
+            android:onClick="@{() -> viewModel.ondafoneOferta(`conferencia`)}"
+            android:id="@+id/recurso_conferencia_selo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/shape_ondafone_selo"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:maxLines="1"
+            android:text="@string/ondafone_selo"
+            android:textColor="@color/bc_white"
+            android:textSize="13sp"
+            android:visibility="@{viewModel.ondafoneLimitado ? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintTop_toTopOf="@id/recurso_conferencia"
+            app:layout_constraintBottom_toBottomOf="@id/recurso_conferencia"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/settings_title_style"
+            android:onClick="@{() -> viewModel.ondafoneOferta(`transferencia_assistida`)}"
+            android:id="@+id/recurso_transferencia_assistida"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/ondafone_recurso_transferencia_assistida"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:visibility="@{viewModel.ondafoneLimitado ? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintTop_toBottomOf="@id/recurso_conferencia"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/recurso_transferencia_assistida_selo"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/default_text_style_600"
+            android:onClick="@{() -> viewModel.ondafoneOferta(`transferencia_assistida`)}"
+            android:id="@+id/recurso_transferencia_assistida_selo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/shape_ondafone_selo"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:maxLines="1"
+            android:text="@string/ondafone_selo"
+            android:textColor="@color/bc_white"
+            android:textSize="13sp"
+            android:visibility="@{viewModel.ondafoneLimitado ? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintTop_toTopOf="@id/recurso_transferencia_assistida"
+            app:layout_constraintBottom_toBottomOf="@id/recurso_transferencia_assistida"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/settings_title_style"
+            android:onClick="@{() -> viewModel.ondafoneOferta(`presenca`)}"
+            android:id="@+id/recurso_presenca"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/ondafone_recurso_presenca"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:visibility="@{viewModel.ondafoneLimitado ? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintTop_toBottomOf="@id/recurso_transferencia_assistida"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/recurso_presenca_selo"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/default_text_style_600"
+            android:onClick="@{() -> viewModel.ondafoneOferta(`presenca`)}"
+            android:id="@+id/recurso_presenca_selo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/shape_ondafone_selo"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:maxLines="1"
+            android:text="@string/ondafone_selo"
+            android:textColor="@color/bc_white"
+            android:textSize="13sp"
+            android:visibility="@{viewModel.ondafoneLimitado ? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintTop_toTopOf="@id/recurso_presenca"
+            app:layout_constraintBottom_toBottomOf="@id/recurso_presenca"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/settings_title_style"
+            android:onClick="@{() -> viewModel.ondafoneOferta(`push`)}"
+            android:id="@+id/recurso_push"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/ondafone_recurso_push"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:visibility="@{viewModel.ondafoneLimitado ? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintTop_toBottomOf="@id/recurso_presenca"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/recurso_push_selo"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/default_text_style_600"
+            android:onClick="@{() -> viewModel.ondafoneOferta(`push`)}"
+            android:id="@+id/recurso_push_selo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/shape_ondafone_selo"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:maxLines="1"
+            android:text="@string/ondafone_selo"
+            android:textColor="@color/bc_white"
+            android:textSize="13sp"
+            android:visibility="@{viewModel.ondafoneLimitado ? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintTop_toTopOf="@id/recurso_push"
+            app:layout_constraintBottom_toBottomOf="@id/recurso_push"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/settings_title_style"
+            android:onClick="@{() -> viewModel.ondafoneOferta(`provisionamento`)}"
+            android:id="@+id/recurso_provisionamento"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/ondafone_recurso_provisionamento"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:visibility="@{viewModel.ondafoneLimitado ? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintTop_toBottomOf="@id/recurso_push"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/recurso_provisionamento_selo"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/default_text_style_600"
+            android:onClick="@{() -> viewModel.ondafoneOferta(`provisionamento`)}"
+            android:id="@+id/recurso_provisionamento_selo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/shape_ondafone_selo"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:maxLines="1"
+            android:text="@string/ondafone_selo"
+            android:textColor="@color/bc_white"
+            android:textSize="13sp"
+            android:visibility="@{viewModel.ondafoneLimitado ? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintTop_toTopOf="@id/recurso_provisionamento"
+            app:layout_constraintBottom_toBottomOf="@id/recurso_provisionamento"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/settings_title_style"
+            android:onClick="@{() -> viewModel.ondafoneOferta(`contas_adicionais`)}"
+            android:id="@+id/recurso_contas_adicionais"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/ondafone_recurso_contas_adicionais"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:visibility="@{viewModel.ondafoneLimitado ? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintTop_toBottomOf="@id/recurso_provisionamento"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/recurso_contas_adicionais_selo"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/default_text_style_600"
+            android:onClick="@{() -> viewModel.ondafoneOferta(`contas_adicionais`)}"
+            android:id="@+id/recurso_contas_adicionais_selo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/shape_ondafone_selo"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:maxLines="1"
+            android:text="@string/ondafone_selo"
+            android:textColor="@color/bc_white"
+            android:textSize="13sp"
+            android:visibility="@{viewModel.ondafoneLimitado ? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintTop_toTopOf="@id/recurso_contas_adicionais"
+            app:layout_constraintBottom_toBottomOf="@id/recurso_contas_adicionais"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/settings_title_style"
+            android:onClick="@{() -> viewModel.ondafoneOferta(`codecs`)}"
+            android:id="@+id/recurso_codecs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/ondafone_recurso_codecs"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:visibility="@{viewModel.ondafoneLimitado ? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintTop_toBottomOf="@id/recurso_contas_adicionais"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/recurso_codecs_selo"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/default_text_style_600"
+            android:onClick="@{() -> viewModel.ondafoneOferta(`codecs`)}"
+            android:id="@+id/recurso_codecs_selo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/shape_ondafone_selo"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:maxLines="1"
+            android:text="@string/ondafone_selo"
+            android:textColor="@color/bc_white"
+            android:textSize="13sp"
+            android:visibility="@{viewModel.ondafoneLimitado ? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintTop_toTopOf="@id/recurso_codecs"
+            app:layout_constraintBottom_toBottomOf="@id/recurso_codecs"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Entrar na conta Ondafone (back #390): e-mail + código de 6 dígitos; cadastro e login são o mesmo fluxo. -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/color_background_contrast_in_dark_mode">
+
+    <ImageView
+        style="@style/icon_top_bar_button_style"
+        android:id="@+id/voltar"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:src="@drawable/caret_left"
+        android:contentDescription="@string/content_description_go_back_icon"
+        app:tint="?attr/color_main1_500"
+        app:layout_constraintBottom_toBottomOf="@id/titulo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/titulo" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/main_page_title_style"
+        android:id="@+id/titulo"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/top_bar_height"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/ondafone_conta_titulo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/voltar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titulo"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/default_text_style"
+                android:id="@+id/explicacao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ondafone_conta_explicacao"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                style="@style/default_text_style"
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edit_text_background"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:hint="@string/ondafone_conta_email"
+                android:autofillHints="emailAddress"
+                android:inputType="textEmailAddress" />
+
+            <CheckBox
+                android:id="@+id/aceite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/ondafone_conta_aceite" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/default_text_style"
+                android:id="@+id/privacidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="@string/ondafone_conta_ver_privacidade"
+                android:textColor="?attr/color_main1_500"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/default_text_style"
+                android:id="@+id/termos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/ondafone_conta_ver_termos"
+                android:textColor="?attr/color_main1_500"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+            <CheckBox
+                android:id="@+id/marketing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/ondafone_conta_marketing" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                style="@style/default_text_style"
+                android:id="@+id/codigo"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edit_text_background"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:hint="@string/ondafone_conta_codigo"
+                android:autofillHints="smsOTPCode"
+                android:inputType="number"
+                android:maxLength="6"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/default_text_style"
+                android:id="@+id/aviso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/primary_button_label_style"
+                android:id="@+id/acao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/ondafone_conta_pedir_codigo" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/tertiary_button_label_style"
+                android:id="@+id/trocar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:text="@string/ondafone_conta_trocar_email"
+                android:visibility="gone" />
+
+            <!-- Botão oficial do Google (desenhado pela biblioteca do Google, sem arte nossa) -->
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/default_text_style"
+                android:id="@+id/ou"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:text="@string/ondafone_conta_ou"
+                android:visibility="gone" />
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/google"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

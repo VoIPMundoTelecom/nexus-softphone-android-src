@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Marca Ondafone (não é GPL: TRADEMARKS.md). Gerado por scripts/marca-ondafone.sh de ondafone-simbolo-mono.svg; não editar à mão -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="24dp" android:height="24dp" android:viewportWidth="100" android:viewportHeight="100">
+    <path android:pathData="M10,50A40,40 0 1,0 90,50A40,40 0 1,0 10,50Z" android:fillColor="#00000000" android:strokeColor="#FFFFFFFF" android:strokeWidth="9" />
+    <path android:pathData="M14 50 C24 50 28 31 38 31 C48 31 52 69 62 69 C72 69 76 50 86 50" android:fillColor="#00000000" android:strokeColor="#FFFFFFFF" android:strokeWidth="9" android:strokeLineCap="round" />
+</vector>

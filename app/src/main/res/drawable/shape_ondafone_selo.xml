@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ondafone: selo "Disponível com a Voipmundo" (Onda Funda, texto branco 4,9:1) -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <corners android:radius="12dp" />
+    <solid android:color="@color/ondafone_onda_funda" />
+</shape>

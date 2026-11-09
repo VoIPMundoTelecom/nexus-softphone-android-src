@@ -1,0 +1,3 @@
+# Exceções da varredura (regex grep -E sobre "arquivo:linha:conteúdo"). Só conteúdo público do upstream.
+^docker-files/bc-dev-android-[0-9]+:[0-9]+:WORKDIR /home/bc$
+^README\.md:[0-9]+:.*LinphoneSdkBuildDir=/home/<username>/

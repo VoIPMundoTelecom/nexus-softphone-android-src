@@ -1,0 +1,19 @@
+# Caminhos (relativos à raiz da tag) que NÃO vão para o espelho público. Um por linha; diretório termina em /.
+NEXUS.md
+INSTALAR.md
+.github/
+docs/release-gpl.md
+docs/learnings/
+.claude/
+FILA-CODE-*
+keystore.properties
+local.properties
+**/*.keystore
+**/*.jks
+**/*.p12
+**/*.pfx
+**/*.bks
+**/*.pem
+**/*.key
+**/.env*
+app/google-services.json
